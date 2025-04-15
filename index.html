@@ -1,13 +1,250 @@
 <!DOCTYPE html>
-<html lang="">
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<link rel="stylesheet" href="/css/index-2b9c74451006d815da581b827cbdda43c6340af8aaeaebf6eacd96a1cf795949.css" />
-
-
-
-
-
-<link href="https://fonts.googleapis.com" rel="preconnect" ><link href="https://fonts.gstatic.com" rel="preconnect" crossorigin ></head>
-<body id="iyzq"><div id="i1ky">Nobody is here...</div></body>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Broken Widget</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #1a1a20;
+            font-family: 'Georgia', serif;
+            color: #d0d0d0;
+            overflow: hidden;
+        }
+        .container {
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+            z-index: 1;
+            max-width: 600px;
+        }
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 0.5rem;
+            font-weight: 400;
+            letter-spacing: 1px;
+            color: #d0d0d0;
+        }
+        .graphic {
+            width: 280px;
+            height: 280px;
+            margin: 0 auto 2rem;
+            position: relative;
+        }
+        .widget {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+        
+        /* Main gear */
+        .gear-large {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            background: radial-gradient(circle at center, #444, #222);
+            border: 8px solid #333;
+            box-shadow: 0 0 15px rgba(0,0,0,0.7);
+        }
+        
+        /* Gear teeth */
+        .gear-large::before {
+            content: '';
+            position: absolute;
+            top: -25px;
+            left: -25px;
+            right: -25px;
+            bottom: -25px;
+            background: conic-gradient(
+                from 0deg, transparent 10deg, #333 10deg, #333 20deg, 
+                transparent 20deg, transparent 30deg, #333 30deg, #333 40deg,
+                transparent 40deg, transparent 50deg, #333 50deg, #333 60deg,
+                transparent 60deg, transparent 70deg, #333 70deg, #333 80deg,
+                transparent 80deg, transparent 90deg, #333 90deg, #333 100deg,
+                transparent 100deg, transparent 110deg, #333 110deg, #333 120deg,
+                transparent 120deg, transparent 130deg, #333 130deg, #333 140deg,
+                transparent 140deg, transparent 150deg, #333 150deg, #333 160deg,
+                transparent 160deg, transparent 170deg, #333 170deg, #333 180deg,
+                transparent 180deg, transparent 190deg, #333 190deg, #333 200deg,
+                transparent 200deg, transparent 210deg, #333 210deg, #333 220deg,
+                transparent 220deg, transparent 230deg, #333 230deg, #333 240deg,
+                transparent 240deg, transparent 250deg, #333 250deg, #333 260deg,
+                transparent 260deg, transparent 270deg, #333 270deg, #333 280deg,
+                transparent 280deg, transparent 290deg, #333 290deg, #333 300deg,
+                transparent 300deg, transparent 310deg, #333 310deg, #333 320deg,
+                transparent 320deg, transparent 330deg, #333 330deg, #333 340deg,
+                transparent 340deg, transparent 350deg, #333 350deg, #333 360deg
+            );
+            border-radius: 50%;
+            z-index: -1;
+        }
+        
+        /* Gear center */
+        .gear-center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(145deg, #555, #333);
+            border-radius: 50%;
+            border: 5px solid #222;
+        }
+        
+        /* Broken tooth */
+        .broken-piece {
+            position: absolute;
+            width: 25px;
+            height: 30px;
+            background-color: #333;
+            top: 30px;
+            right: 30px;
+            transform: rotate(30deg);
+            clip-path: polygon(0 0, 100% 0, 80% 100%, 20% 100%);
+            box-shadow: 3px 3px 5px rgba(0,0,0,0.5);
+        }
+        
+        /* Small gear */
+        .gear-small {
+            position: absolute;
+            bottom: 40px;
+            left: 40px;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: radial-gradient(circle at center, #444, #222);
+            border: 5px solid #333;
+            box-shadow: 0 0 10px rgba(0,0,0,0.7);
+        }
+        
+        /* Small gear teeth */
+        .gear-small::before {
+            content: '';
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            right: -15px;
+            bottom: -15px;
+            background: conic-gradient(
+                from 0deg, transparent 15deg, #333 15deg, #333 30deg, 
+                transparent 30deg, transparent 45deg, #333 45deg, #333 60deg,
+                transparent 60deg, transparent 75deg, #333 75deg, #333 90deg,
+                transparent 90deg, transparent 105deg, #333 105deg, #333 120deg,
+                transparent 120deg, transparent 135deg, #333 135deg, #333 150deg,
+                transparent 150deg, transparent 165deg, #333 165deg, #333 180deg,
+                transparent 180deg, transparent 195deg, #333 195deg, #333 210deg,
+                transparent 210deg, transparent 225deg, #333 225deg, #333 240deg,
+                transparent 240deg, transparent 255deg, #333 255deg, #333 270deg,
+                transparent 270deg, transparent 285deg, #333 285deg, #333 300deg,
+                transparent 300deg, transparent 315deg, #333 315deg, #333 330deg,
+                transparent 330deg, transparent 345deg, #333 345deg, #333 360deg
+            );
+            border-radius: 50%;
+            z-index: -1;
+        }
+        
+        /* Small gear center */
+        .gear-small-center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 30px;
+            height: 30px;
+            background: linear-gradient(145deg, #555, #333);
+            border-radius: 50%;
+            border: 3px solid #222;
+        }
+        
+        /* Connector rod */
+        .connector {
+            position: absolute;
+            width: 10px;
+            height: 100px;
+            background-color: #555;
+            bottom: 50px;
+            right: 60px;
+            transform: rotate(30deg);
+            transform-origin: center bottom;
+        }
+        
+        /* Metallic background pattern */
+        .metallic-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                linear-gradient(45deg, rgba(40, 40, 50, 0.6) 25%, transparent 25%),
+                linear-gradient(-45deg, rgba(40, 40, 50, 0.6) 25%, transparent 25%),
+                linear-gradient(45deg, transparent 75%, rgba(40, 40, 50, 0.6) 75%),
+                linear-gradient(-45deg, transparent 75%, rgba(40, 40, 50, 0.6) 75%);
+            background-size: 20px 20px;
+            background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+            z-index: -1;
+            opacity: 0.1;
+        }
+        
+        /* Rivets on edges */
+        .rivet {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background: radial-gradient(circle at center, #777, #444);
+            border-radius: 50%;
+            border: 1px solid #222;
+            box-shadow: inset 1px 1px 2px rgba(255,255,255,0.2);
+        }
+        .rivet1 { top: 20px; left: 20px; }
+        .rivet2 { top: 20px; right: 20px; }
+        .rivet3 { bottom: 20px; left: 20px; }
+        .rivet4 { bottom: 20px; right: 20px; }
+        
+        /* Light effects */
+        .highlight {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 50%, rgba(0,0,0,0.1) 100%);
+            z-index: 2;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="metallic-bg"></div>
+    
+    <div class="container">
+        <div class="graphic">
+            <div class="widget">
+                <div class="gear-large">
+                    <div class="gear-center"></div>
+                </div>
+                <div class="gear-small">
+                    <div class="gear-small-center"></div>
+                </div>
+                <div class="broken-piece"></div>
+                <div class="connector"></div>
+                <div class="rivet rivet1"></div>
+                <div class="rivet rivet2"></div>
+                <div class="rivet rivet3"></div>
+                <div class="rivet rivet4"></div>
+                <div class="highlight"></div>
+            </div>
+        </div>
+        <h1>Nobody is here...</h1>
+    </div>
+</body>
 </html>
